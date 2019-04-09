@@ -9,6 +9,7 @@ service ThetaRadix {
 message RegisterRequest {
     string mail = 1;
     string password = 2;
+    bool mobile = 3;
 }
 
 message RegisterReply {
