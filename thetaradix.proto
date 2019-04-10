@@ -26,6 +26,7 @@ message LoginRequest {
 }
 
 message LoginReply {
-    string success = 1;
+    bool success = 1;
     string jwt = 2;
+    string message = 3;
 }
