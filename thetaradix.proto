@@ -4,6 +4,7 @@ package thetaradix;
 
 service ThetaRadix {
     rpc Register (RegisterRequest) returns (RegisterReply);
+    rpc Login (LoginRequest) returns (LoginReply);
 }
 
 message RegisterRequest {
@@ -15,6 +16,16 @@ message RegisterRequest {
 message RegisterReply {
     bool success = 1;
     bool pleaseVerifyPassword = 2;
-    string jwt = 3;
     string errorMessage = 4;
+    reserved 3; // Do not remove, used for backwards compatibility
+}
+
+message LoginRequest {
+    string mail = 1;
+    string password = 2;
+}
+
+message LoginReply {
+    string success = 1;
+    string jwt = 2;
 }
